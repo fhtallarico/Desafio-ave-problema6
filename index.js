@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const getPokemonData = async (searchTerm) => {
       // Realizar una solicitud a la API utilizando fetch y el término de búsqueda proporcionado.
-      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchTerm}`);
-      if (!response) {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchTerm}`);
+      if (!response.ok) {
         // Si la respuesta no es exitosa (por ejemplo, 404 Not Found), lanzar un error.
         throw new Error('No se pudo obtener la información del Pokémon.');
       }
